@@ -55,7 +55,7 @@ jobs:
         uses: wokwi/wokwi-ci-action@v1
         with:
           token: ${{ secrets.WOKWI_CLI_TOKEN }}
-          path: /wokwi/esp32 # directory with wokwi.toml, relative to repo's root
+          path: /wokwi/ESP32 # directory with wokwi.toml, relative to repo's root
           timeout: 10000
           expect_text: '<* LCD3:Free RAM='
           fail_text: 'Error'
