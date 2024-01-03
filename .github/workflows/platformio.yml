@@ -35,6 +35,12 @@ jobs:
           find . -name '*.uf2' | cpio -pdm ../../downloads
           cd ../..
 
+      - name: Use the Upload Artifact GitHub Action
+        uses: actions/upload-artifact@v2
+        with: 
+          name: firmware-for-download
+          path: downloads
+
       - name: Test with Wokwi
         uses: wokwi/wokwi-ci-action@v1
         with:
@@ -44,9 +50,3 @@ jobs:
           expect_text: '<* LCD3:Free RAM= 5240b *>'
           fail_text: 'Error'
 #          scenario: 'test-hello-world.yaml' # optional
-
-      - name: Use the Upload Artifact GitHub Action
-        uses: actions/upload-artifact@v2
-        with: 
-          name: firmware-for-download
-          path: downloads
