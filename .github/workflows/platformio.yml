@@ -35,6 +35,16 @@ jobs:
           find . -name '*.uf2' | cpio -pdm ../../downloads
           cd ../..
 
+      - name: Test with Wokwi
+        uses: wokwi/wokwi-ci-action@v1
+        with:
+          token: ${{ secrets.WOKWI_CLI_TOKEN }}
+          path: /wokwi # directory with wokwi.toml, relative to repo's root
+          timeout: 10000
+          expect_text: 'Hello, world!'
+          fail_text: 'Error'
+#          scenario: 'test-hello-world.yaml' # optional
+
       - name: Use the Upload Artifact GitHub Action
         uses: actions/upload-artifact@v2
         with: 
