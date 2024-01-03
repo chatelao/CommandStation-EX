@@ -45,7 +45,17 @@ jobs:
         uses: wokwi/wokwi-ci-action@v1
         with:
           token: ${{ secrets.WOKWI_CLI_TOKEN }}
-          path: /wokwi # directory with wokwi.toml, relative to repo's root
+          path: /wokwi/mega # directory with wokwi.toml, relative to repo's root
+          timeout: 10000
+          expect_text: '<* LCD3:Free RAM= 5240b *>'
+          fail_text: 'Error'
+#          scenario: 'test-hello-world.yaml' # optional
+
+      - name: Test with Wokwi
+        uses: wokwi/wokwi-ci-action@v1
+        with:
+          token: ${{ secrets.WOKWI_CLI_TOKEN }}
+          path: /wokwi/esp32 # directory with wokwi.toml, relative to repo's root
           timeout: 10000
           expect_text: '<* LCD3:Free RAM= 5240b *>'
           fail_text: 'Error'
