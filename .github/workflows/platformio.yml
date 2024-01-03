@@ -30,9 +30,9 @@ jobs:
         run: |
           mkdir downloads
           cd .pio/build
-          find . -name '*.bin' | cpio -pdm downloads
-          find . -name '*.hex' | cpio -pdm downloads
-          find . -name '*.uf2' | cpio -pdm downloads
+          find . -name '*.bin' | cpio -pdm ../../downloads
+          find . -name '*.hex' | cpio -pdm ../../downloads
+          find . -name '*.uf2' | cpio -pdm ../../downloads
           cd ../..
 
       - name: Use the Upload Artifact GitHub Action
