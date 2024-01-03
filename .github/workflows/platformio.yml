@@ -29,10 +29,13 @@ jobs:
       - name: Copy artifacts temp folder
         run: |
           mkdir downloads
-          find .pio/build -name '*.bin' | cpio -pdm downloads
-          find .pio/build -name '*.hex' | cpio -pdm downloads
+          cd .pio/build
+          find . -name '*.bin' | cpio -pdm downloads
+          find . -name '*.hex' | cpio -pdm downloads
+          find . -name '*.uf2' | cpio -pdm downloads
+          cd ../..
 
-      - name: Step 3 - Use the Upload Artifact GitHub Action
+      - name: Use the Upload Artifact GitHub Action
         uses: actions/upload-artifact@v2
         with: 
           name: assets-for-download
