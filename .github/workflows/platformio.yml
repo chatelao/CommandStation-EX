@@ -41,7 +41,7 @@ jobs:
           token: ${{ secrets.WOKWI_CLI_TOKEN }}
           path: /wokwi # directory with wokwi.toml, relative to repo's root
           timeout: 10000
-          expect_text: 'Hello, world!'
+          expect_text: '<* LCD3:Free RAM= 5240b *>'
           fail_text: 'Error'
 #          scenario: 'test-hello-world.yaml' # optional
 
