@@ -25,3 +25,15 @@ jobs:
 
       - name: Build PlatformIO Project
         run: pio run
+
+      - name: Copy artifacts temp folder
+        run: |
+          mkdir downloads
+          find .pio/build -name '*.bin' | cpio -pdm downloads
+          find .pio/build -name '*.hex' | cpio -pdm downloads
+
+      - name: Step 3 - Use the Upload Artifact GitHub Action
+        uses: actions/upload-artifact@v2
+        with: 
+          name: assets-for-download
+          path: downloads
