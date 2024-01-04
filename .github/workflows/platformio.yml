@@ -26,7 +26,7 @@ jobs:
       - name: Build PlatformIO Project
         run: pio run
 
-      - name: Copy artifacts temp folder
+      - name: Copy all firmwares for for packaging
         run: |
           mkdir downloads
           cd .pio/build
@@ -35,10 +35,10 @@ jobs:
           find . -name '*.uf2' | cpio -pdm ../../downloads
           cd ../..
 
-      - name: Use the Upload Artifact GitHub Action
+      - name: Package and upload all firmwares for download
         uses: actions/upload-artifact@v3
         with: 
-          name: firmware-for-download
+          name: all-firmwares-for-download
           path: downloads
 
       - name: Test on Arduino MEGA with Wokwi
