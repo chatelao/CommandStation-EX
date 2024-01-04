@@ -36,7 +36,7 @@ jobs:
           cd ../..
 
       - name: Use the Upload Artifact GitHub Action
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with: 
           name: firmware-for-download
           path: downloads
