@@ -63,7 +63,7 @@
 
 // Arduino STANDARD Motor Shield, used on different architectures:
 
-#if defined(ARDUINO_ARCH_SAMD) || defined(ARDUINO_ARCH_STM32)
+#if defined(ARDUINO_ARCH_SAMD) || defined(ARDUINO_ARCH_STM32) || defined(ARDUINO_ARCH_RP2040)
 // Standard Motor Shield definition for 3v3 processors (other than the ESP32)
 // Setup for SAMD21 Sparkfun DEV board MUST use Arduino Motor Shield R3 (MUST be R3
 // for 3v3 compatibility!!) senseFactor for 3.3v systems is 1.95 as calculated when using
